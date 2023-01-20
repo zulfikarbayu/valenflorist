@@ -1,20 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2019 at 02:50 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Generation Time: Jan 20, 2023 at 08:26 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `tokobunga_db`
@@ -26,8 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `compare`
 --
 
-CREATE TABLE IF NOT EXISTS `compare` (
-  `kd_compare` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `compare` (
+  `kd_compare` int(11) NOT NULL,
   `type` text NOT NULL,
   `gambar` text NOT NULL,
   `gambar_large` text NOT NULL,
@@ -37,87 +38,20 @@ CREATE TABLE IF NOT EXISTS `compare` (
   `bed` text NOT NULL,
   `view` text NOT NULL,
   `detail` text NOT NULL,
-  `rate` double DEFAULT NULL,
-  PRIMARY KEY (`kd_compare`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+  `rate` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `compare`
 --
 
 INSERT INTO `compare` (`kd_compare`, `type`, `gambar`, `gambar_large`, `gambar_kotak`, `gambar_view`, `max`, `bed`, `view`, `detail`, `rate`) VALUES
-(6, 'Superior King', '', 'd5e2c1a90338d15d1324490752c926fc.jpg', '15bb3ef496cc6adecec7b87b6a194cd3.jpg', '', '', '', '', '<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n\r\n<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n', 400000),
-(7, 'Superior Twin ', '', 'c81f2ef1e6f8631cc16adfed374a98f8.jpg', 'ca6d4a9d8c7850d08824eec9393934a5.jpg', '', '', '', '', '<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n\r\n<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n', 500000),
-(8, 'Deluxe King', '', 'fbbab1d5f2a2130bf7d79d89e6463dd4.jpg', '6edf6431334b27d2b0585d6b5843f820.jpg', '', '', '', '', '<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n\r\n<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n', 600000),
-(9, 'Junior Suite', '', '6674cc198c08c4bd36a0c2923d15a399.jpg', '88d9bec7bcdc1dbaa68136f086234964.jpg', '', '', '', '', '<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n\r\n<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n', 900000);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `detail_fasilitas`
---
-
-CREATE TABLE IF NOT EXISTS `detail_fasilitas` (
-  `kd_detail` int(11) NOT NULL AUTO_INCREMENT,
-  `kd_fasilitas` int(11) NOT NULL,
-  `fasilitas` text NOT NULL,
-  PRIMARY KEY (`kd_detail`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `detail_fasilitas`
---
-
-INSERT INTO `detail_fasilitas` (`kd_detail`, `kd_fasilitas`, `fasilitas`) VALUES
-(1, 1, 'Bed King-size or twin beds'),
-(2, 1, 'Bathroom with shower'),
-(3, 2, 'Air conditioner'),
-(4, 2, 'Smooking & Non Smooking Area');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `events`
---
-
-CREATE TABLE IF NOT EXISTS `events` (
-  `event_id` int(11) NOT NULL AUTO_INCREMENT,
-  `event_post` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `event_nama` varchar(100) DEFAULT NULL,
-  `event_jadwal` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`event_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `events`
---
-
-INSERT INTO `events` (`event_id`, `event_post`, `event_nama`, `event_jadwal`) VALUES
-(1, '2018-03-19 13:40:25', 'EVENT WEDDING 2', 'at 12:30 Pm, Thu 01 Oct 2019'),
-(2, '2018-03-19 13:40:49', 'EVENT WEDDING 1', 'at 12:30 Pm, Thu 01 Oct 2019'),
-(3, '2018-03-19 13:41:14', 'EVENT PANWASLU', 'at 12:30 Pm, Thu 01 Oct 2019');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fasilitas`
---
-
-CREATE TABLE IF NOT EXISTS `fasilitas` (
-  `kd_fasilitas` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` text NOT NULL,
-  `gambar` text NOT NULL,
-  `detail` text NOT NULL,
-  PRIMARY KEY (`kd_fasilitas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `fasilitas`
---
-
-INSERT INTO `fasilitas` (`kd_fasilitas`, `nama`, `gambar`, `detail`) VALUES
-(1, 'SWIMMING POOL', '3e2b40d6ec0a91b32c66ba598fc901bb.jpg', '<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n\r\n<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n'),
-(2, 'MEETING ROOM', 'd150c4b7f950ed2ada52287b0f1f24e1.jpg', '<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n\r\n<p>Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi Ini adalah deskripsi.</p>\r\n');
+(10, 'Karangan Bunga Papan Duka Cita', '', '3b101fe8ed472cdcbab711ece57b0683.png', 'd2f7a3c87ae5f3f9beb6089c010427d6.png', '', '', '', '', '<p><a href=\"https://www.bungasolo.com/bunga-dukacita\" style=\"box-sizing: border-box; margin: 0px; padding: 0px; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; text-decoration-line: none; color: rgba(0, 0, 0, 0.75); box-shadow: none; font-family: Hind, sans-serif; font-size: 14px;\" title=\"Toko Bunga Dukacita Solo\">Bunga dukacita</a>&nbsp;sekiranya bisa menjadi pilihan terbaik untuk menghibur kerabat atau kenalan yang tengah berkabung. Selain itu, pemberian karangan bunga bisa pula diartikan sebagai bentuk penghormatan terakhir kepada pihak yang meninggal. Memang tidak mudah menghibur seseorang yang berduka karena kehilangan anggota keluarga yang dicintai. Bila kata-kata belasungkawa tak kuasa diucapkan, maka rangkaian bunga pada papan duka cita dapat dipilih sebagai perwakilan. Meski memang tidak bisa menghilangkan luka dan duka kehilangan sosok yang dicintai dalam keluarga. Namun, paling tidak dengan memberi karangan bunga mereka yang ditinggalkan merasa sedikit terhibur.</p>\r\n', 600000),
+(11, 'Karangan Bunga Papan Pernikahan', '', 'e19f2958a72c3b7ccf58f62a2f9d9b0e.png', '6d0e9bd291b9a14d3b707855e6a354bc.png', '', '', '', '', '<p>Bunga ucapan pernikahan umumnya memiliki latar belakang warna yang cerah seperti merah, pink, kuning, atau putih. Ditambah dengan bunga segar warna-warni seperti krisan dan gerbera, akan membuat bunga papan ucapan pernikahan ini terkesan meriah dan elegan untuk dikirim baik ke rumah mempelai atau ke gedung pernikahan.</p>\r\n', 600000),
+(12, 'Karangan Bunga Papan Selamat', '', '5248a90946e0a7e9262fe48b408e909d.png', 'c878fdc029d0548b4c8bc6a6f0415fc9.png', '', '', '', '', '<p>Kami&nbsp;menyediakan beragam desain karangan bunga dan jenis bunga untuk acara ulang tahun, pernikahan, perayaan hari jadi, grand opening, pembukaan toko maupun ucapan selamat lain yang bisa disesuaikan dengan pesanan anda.</p>\r\n', 600000),
+(13, 'Bunga Rias Mobil', '', '0b589721dad4d4ee935661b9b42d37ce.png', '5ca894b7cf792ee786337ab4fc4fd541.png', '', '', '', '', '<p>Kami menyediakan beragam desain karangan bunga dan jenis bunga, tidak terkecuali karangan bunga untuk mobil hias, yang biasa digunakan saat pernikahan, perayaan hari jadi, grand opening, pembukaan toko maupun ucapan selamat lain yang bisa disesuaikan dengan pesanan anda.</p>\r\n', 600000),
+(14, 'Bunga Standing', '', 'f50a9f523f83943532257549ad4980a0.png', '0624fbc42465c5a5117159797e50faa4.png', '', '', '', '', '<p>Bunga standing adalah bentuk rangkaian bunga dengan menambahkan penyangga yang terbuatan dari bahan metal sehingga bunga terlihat menjulang. Rangkaian bunga berwarna-warni dalam bentuk standing mampu memberikan kesan mendalam bagi penerimanya.</p>\r\n', 800000),
+(15, 'Bunga Handbouquet', '', '2f130515c74c05c3c874bfdc7893f651.png', '08b78f4a52421431426f2ae8ea3c9904.png', '', '', '', '', '<p>Kami dapat menyediakan hand bucket ini untuk orang yang anda kasihi, saat perayaan wisuda, untuk acara ulang tahun, pernikahan, perayaan hari jadi, grand opening, pembukaan toko maupun ucapan selamat lain yang bisa disesuaikan dengan pesanan anda.&nbsp;</p>\r\n', 300000);
 
 -- --------------------------------------------------------
 
@@ -125,46 +59,23 @@ INSERT INTO `fasilitas` (`kd_fasilitas`, `nama`, `gambar`, `detail`) VALUES
 -- Table structure for table `inbox`
 --
 
-CREATE TABLE IF NOT EXISTS `inbox` (
-  `inbox_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `inbox` (
+  `inbox_id` int(11) NOT NULL,
   `inbox_nama` varchar(70) DEFAULT NULL,
   `inbox_email` varchar(70) DEFAULT NULL,
   `inbox_subject` varchar(200) DEFAULT NULL,
-  `inbox_pesan` text,
-  `inbox_status` int(11) DEFAULT '1',
-  `inbox_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`inbox_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `inbox_pesan` text DEFAULT NULL,
+  `inbox_status` int(11) DEFAULT 1,
+  `inbox_tanggal` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inbox`
 --
 
 INSERT INTO `inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_subject`, `inbox_pesan`, `inbox_status`, `inbox_tanggal`) VALUES
-(2, 'M Fikri', 'fikrifiver97@gmail.com', 'Booking Room', 'Dude, I need two sweet rooms for three days. ', 0, '2019-03-19 09:18:23');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jam_makan`
---
-
-CREATE TABLE IF NOT EXISTS `jam_makan` (
-  `kd_makan` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` text NOT NULL,
-  `jam` text NOT NULL,
-  PRIMARY KEY (`kd_makan`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `jam_makan`
---
-
-INSERT INTO `jam_makan` (`kd_makan`, `nama`, `jam`) VALUES
-(1, 'BREAKFAST', '8h00 Am - 2h00 Pm'),
-(2, 'LUNCH ', '8h00 Am - 2h00 Pm'),
-(3, 'DINNER', '8h00 Am - 2h00 Pm'),
-(4, 'DRINK', '8h00 Am - 2h00 Pm');
+(2, 'M Fikri', 'fikrifiver97@gmail.com', 'Booking Room', 'Dude, I need two sweet rooms for three days. ', 0, '2019-03-19 09:18:23'),
+(3, 'Joko', 'adminzul@gmail.com', 'Order bunga', 'Saya ingin order bunga untuk pernikahan', 1, '2023-01-19 03:46:22');
 
 -- --------------------------------------------------------
 
@@ -172,13 +83,12 @@ INSERT INTO `jam_makan` (`kd_makan`, `nama`, `jam`) VALUES
 -- Table structure for table `kategori`
 --
 
-CREATE TABLE IF NOT EXISTS `kategori` (
-  `kategori_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `kategori` (
+  `kategori_id` int(11) NOT NULL,
   `kategori_nama` varchar(30) DEFAULT NULL,
-  `kategori_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `kategori_slug` varchar(200) NOT NULL,
-  PRIMARY KEY (`kategori_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+  `kategori_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `kategori_slug` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kategori`
@@ -187,7 +97,10 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 INSERT INTO `kategori` (`kategori_id`, `kategori_nama`, `kategori_tanggal`, `kategori_slug`) VALUES
 (15, 'Psikologi', '2018-03-09 02:54:35', 'psikolog'),
 (16, 'Teknologi', '2018-03-09 03:01:23', 'teknologi'),
-(17, 'Politik', '2019-03-27 01:34:57', 'politik');
+(17, 'Politik', '2019-03-27 01:34:57', 'politik'),
+(18, 'Bunga Ucapan Selamat', '2023-01-16 15:16:48', 'bunga-ucapan-selamat'),
+(19, 'Bunga Ucapan Dukacita', '2023-01-16 15:16:58', 'bunga-ucapan-dukacita'),
+(20, 'Bunga Ucapan Pernikahan', '2023-01-16 15:17:43', 'bunga-ucapan-pernikahan');
 
 -- --------------------------------------------------------
 
@@ -195,51 +108,20 @@ INSERT INTO `kategori` (`kategori_id`, `kategori_nama`, `kategori_tanggal`, `kat
 -- Table structure for table `kontak`
 --
 
-CREATE TABLE IF NOT EXISTS `kontak` (
-  `kd_kontak` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `kontak` (
+  `kd_kontak` int(11) NOT NULL,
   `des` text NOT NULL,
   `alamat` text NOT NULL,
   `telp` text NOT NULL,
-  `email` text NOT NULL,
-  PRIMARY KEY (`kd_kontak`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `email` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `kontak`
 --
 
 INSERT INTO `kontak` (`kd_kontak`, `des`, `alamat`, `telp`, `email`) VALUES
-(1, 'Anda adalah orang penting bagi M hotel jika anda punya masalah mengenai kami silahkan kontak kami, dengan senang hati kami melayani anda', 'Jl. M Hotel No. 25 Kota Padang West Sumatera - INDONESIA', '+61 97492 242xxx', 'infomhotel@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `makanan`
---
-
-CREATE TABLE IF NOT EXISTS `makanan` (
-  `kd_makan` int(11) NOT NULL,
-  `kd_makanan` int(11) NOT NULL AUTO_INCREMENT,
-  `disc` int(11) NOT NULL,
-  `makanan` text NOT NULL,
-  `gambar` text NOT NULL,
-  `keterangan` text NOT NULL,
-  `harga` int(11) NOT NULL,
-  PRIMARY KEY (`kd_makanan`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
-
---
--- Dumping data for table `makanan`
---
-
-INSERT INTO `makanan` (`kd_makan`, `kd_makanan`, `disc`, `makanan`, `gambar`, `keterangan`, `harga`) VALUES
-(1, 6, 30000, 'Kwetiau Goreng', '3b762928253480ea4790da132a170e73.jpg', 'Kwetiau Goreng Special', 200000),
-(1, 7, 20000, 'Telur Mata Sapi', 'a34cea6fa2dd0cec01ad7b4c3c16af41.jpg', 'Telur Mata Sapi Special', 100000),
-(1, 8, 20000, 'Sate Madura', 'f7b43e93e840f2af2951f88dc8471c22.jpg', 'Satu Madura Asli', 200000),
-(4, 9, 0, 'Coffee Latte Panas', 'f0dcc99e70f7df106688de0cb562ef05.jpg', 'Coffee Creamy Latte', 30000),
-(4, 10, 0, 'Cappuccino Panas', '507db7dddd1b138ee694e68cd6775d13.jpg', 'Cappuccino Numero Uno', 30000),
-(1, 11, 15000, 'Rendang Padang', '0d0171fd17d712663e1b6f94090206e5.jpg', 'Rendang Padang Asli', 200000),
-(2, 12, 15000, 'Burger Betok', 'e7fff4312d885df38e0309490c52bcd6.jpg', 'Burger Special', 200000);
+(1, 'Kami memiliki dua cabang toko, dengan alamat yang tertera. Silahkan hubungi kami terlebih dahulu untuk informasi lebih  lengkap nya terkait pemesanan. Terima Kasih', 'JL. Raya Kali Malang Depan Kampus Borobudur,  Jakarta Timur dan Sambung Macan, Sragen, Jawa Tengah', '+62 811-1977-252', '-');
 
 -- --------------------------------------------------------
 
@@ -247,20 +129,19 @@ INSERT INTO `makanan` (`kd_makan`, `kd_makanan`, `disc`, `makanan`, `gambar`, `k
 -- Table structure for table `overview`
 --
 
-CREATE TABLE IF NOT EXISTS `overview` (
-  `kd_over` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `overview` (
+  `kd_over` int(11) NOT NULL,
   `head` varchar(200) NOT NULL,
   `des` text NOT NULL,
-  `gambar` text NOT NULL,
-  PRIMARY KEY (`kd_over`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `gambar` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `overview`
 --
 
 INSERT INTO `overview` (`kd_over`, `head`, `des`, `gambar`) VALUES
-(1, 'About', '<p>MHOTEL merupakan OpenSource SOURCE CODE company profile hotel yang di develop oleh <a href="http://mfikri.com/" target="_blank">M Fikri Setiadi.</a></p>', 'about.png');
+(1, 'About', '<p>Valen Florist merupakan toko bunga yang menyediakan berbagai pilihan bunga segar dan cantik untuk kami rangkai menjadi suatu karya sebagai bentuk mengekspresikan sesuatu terhadap orang yang anda kasihi seperti karangan bunga untuk ucapan selamat, bunga papan, bunga dukacita, bunga tangan atau hand bouquet dan bunga rangkaian baik untuk acara pernikahan maupun untuk dekorasi acara penting.\r\n<br><br>\r\n\r\nKami memiliki dua cabang yaitu, di Jakarta Timur dan di Sragen. Kami siap melayani pengiriman pesanan bunga seluruh Indonesia.Kami juga buka 24 jam dan kami siap melayani anda kapapun.\r\n<br><br>\r\n\r\nSilahkan melihat koleksi produk karangan bunga yang kami sediakan dan memilih desain serta bentuk yang sesuai dengan keinginan anda. </p>', 'about.png');
 
 -- --------------------------------------------------------
 
@@ -268,29 +149,29 @@ INSERT INTO `overview` (`kd_over`, `head`, `des`, `gambar`) VALUES
 -- Table structure for table `pengguna`
 --
 
-CREATE TABLE IF NOT EXISTS `pengguna` (
-  `pengguna_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pengguna` (
+  `pengguna_id` int(11) NOT NULL,
   `pengguna_nama` varchar(50) DEFAULT NULL,
   `pengguna_moto` varchar(100) DEFAULT NULL,
   `pengguna_jenkel` varchar(2) DEFAULT NULL,
   `pengguna_username` varchar(30) DEFAULT NULL,
   `pengguna_password` varchar(35) DEFAULT NULL,
-  `pengguna_tentang` text,
+  `pengguna_tentang` text DEFAULT NULL,
   `pengguna_email` varchar(50) DEFAULT NULL,
   `pengguna_nohp` varchar(20) DEFAULT NULL,
-  `pengguna_status` int(2) DEFAULT '1',
+  `pengguna_status` int(2) DEFAULT 1,
   `pengguna_level` varchar(3) DEFAULT NULL,
-  `pengguna_register` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `pengguna_photo` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`pengguna_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `pengguna_register` timestamp NULL DEFAULT current_timestamp(),
+  `pengguna_photo` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_moto`, `pengguna_jenkel`, `pengguna_username`, `pengguna_password`, `pengguna_tentang`, `pengguna_email`, `pengguna_nohp`, `pengguna_status`, `pengguna_level`, `pengguna_register`, `pengguna_photo`) VALUES
-(1, 'M Fikri Setiadi', 'Just do it', 'L', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'I am a mountainner. to me mountainerring is a life', 'fikrifiver97@gmail.com', '081277159401', 1, '1', '2016-09-03 06:07:55', '02cd7d84e888e6b03b0f35fe4cc06ac0.jpg');
+(1, 'M Fikri Setiadi', 'Just do it', 'L', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'I am a mountainner. to me mountainerring is a life', 'fikrifiver97@gmail.com', '081277159401', 1, '1', '2016-09-03 06:07:55', '02cd7d84e888e6b03b0f35fe4cc06ac0.jpg'),
+(7, 'Admin Joko', NULL, 'L', 'Admin Joko', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'heathxavier99@gmail.com', '0821212121', 1, '1', '2023-01-20 03:51:40', '47b614e183097f2254e4a55e6168339e.jpg');
 
 -- --------------------------------------------------------
 
@@ -298,13 +179,12 @@ INSERT INTO `pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_moto`, `penggu
 -- Table structure for table `pengunjung`
 --
 
-CREATE TABLE IF NOT EXISTS `pengunjung` (
-  `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT,
-  `pengunjung_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE `pengunjung` (
+  `pengunjung_id` int(11) NOT NULL,
+  `pengunjung_tanggal` timestamp NULL DEFAULT current_timestamp(),
   `pengunjung_ip` varchar(25) DEFAULT NULL,
-  `pengunjung_perangkat` varchar(80) DEFAULT NULL,
-  PRIMARY KEY (`pengunjung_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3030 ;
+  `pengunjung_perangkat` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengunjung`
@@ -3342,7 +3222,13 @@ INSERT INTO `pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung_ip`
 (3026, '2019-03-25 02:30:23', '::1', 'Chrome'),
 (3027, '2019-03-26 01:51:47', '::1', 'Firefox'),
 (3028, '2019-03-27 01:25:01', '::1', 'Firefox'),
-(3029, '2019-03-28 01:05:27', '::1', 'Chrome');
+(3029, '2019-03-28 01:05:27', '::1', 'Chrome'),
+(3030, '2023-01-16 15:08:35', '::1', 'Chrome'),
+(3031, '2023-01-16 17:13:18', '::1', 'Chrome'),
+(3032, '2023-01-18 01:54:33', '::1', 'Chrome'),
+(3033, '2023-01-19 02:59:58', '::1', 'Chrome'),
+(3034, '2023-01-20 03:03:35', '::1', 'Chrome'),
+(3035, '2023-01-20 04:18:35', '127.0.0.1', 'Firefox');
 
 -- --------------------------------------------------------
 
@@ -3350,13 +3236,12 @@ INSERT INTO `pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung_ip`
 -- Table structure for table `post_views`
 --
 
-CREATE TABLE IF NOT EXISTS `post_views` (
-  `views_id` int(11) NOT NULL AUTO_INCREMENT,
-  `views_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE `post_views` (
+  `views_id` int(11) NOT NULL,
+  `views_tanggal` timestamp NULL DEFAULT current_timestamp(),
   `views_ip` varchar(40) DEFAULT NULL,
-  `views_tulisan_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`views_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+  `views_tulisan_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post_views`
@@ -3374,7 +3259,36 @@ INSERT INTO `post_views` (`views_id`, `views_tanggal`, `views_ip`, `views_tulisa
 (9, '2019-03-27 02:57:55', '::1', 67),
 (10, '2019-03-27 03:05:30', '::1', 68),
 (11, '2019-03-27 06:10:59', '::1', 66),
-(12, '2019-03-28 01:05:35', '::1', 68);
+(12, '2019-03-28 01:05:35', '::1', 68),
+(13, '2023-01-16 16:15:28', '::1', 68),
+(14, '2023-01-17 08:21:20', '::1', 68),
+(15, '2023-01-17 08:21:34', '::1', 67),
+(16, '2023-01-17 08:23:58', '::1', 66),
+(17, '2023-01-19 03:03:11', '::1', 66);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_type`
+--
+
+CREATE TABLE `product_type` (
+  `type_id` int(11) NOT NULL,
+  `type_nama` varchar(200) DEFAULT NULL,
+  `type_rate` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_type`
+--
+
+INSERT INTO `product_type` (`type_id`, `type_nama`, `type_rate`) VALUES
+(1, 'Karangan Bunga Papan Duka Cita', 600000),
+(2, 'Karangan Bunga Papan Selamat', 600000),
+(3, 'Karangan Bunga Papan Pernikahan', 600000),
+(4, 'Bunga Rias Mobil', 600000),
+(5, 'Bunga Handbouquet', 300000),
+(6, 'Bunga Standing', 800000);
 
 -- --------------------------------------------------------
 
@@ -3382,13 +3296,12 @@ INSERT INTO `post_views` (`views_id`, `views_tanggal`, `views_ip`, `views_tulisa
 -- Table structure for table `ret`
 --
 
-CREATE TABLE IF NOT EXISTS `ret` (
-  `kd_rate` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ret` (
+  `kd_rate` int(11) NOT NULL,
   `rate` int(11) NOT NULL,
   `publish` int(11) NOT NULL,
-  `room` int(11) NOT NULL,
-  PRIMARY KEY (`kd_rate`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+  `room` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ret`
@@ -3405,51 +3318,25 @@ INSERT INTO `ret` (`kd_rate`, `rate`, `publish`, `room`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room_type`
---
-
-CREATE TABLE IF NOT EXISTS `room_type` (
-  `type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `type_nama` varchar(200) DEFAULT NULL,
-  `type_rate` double DEFAULT NULL,
-  PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `room_type`
---
-
-INSERT INTO `room_type` (`type_id`, `type_nama`, `type_rate`) VALUES
-(1, 'Superior King', 500000),
-(2, 'Superior Twin ', 500000),
-(3, 'Deluxe King', 600000),
-(4, 'Deluxe Twin', 600000),
-(5, 'Junior Suite', 750000),
-(6, 'Executive Family', 1050000);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `slider`
 --
 
-CREATE TABLE IF NOT EXISTS `slider` (
-  `kd_gambar` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `slider` (
+  `kd_gambar` int(11) NOT NULL,
   `gambar` varchar(40) DEFAULT NULL,
   `caption_1` varchar(200) DEFAULT NULL,
   `caption_2` varchar(200) DEFAULT NULL,
-  `caption_3` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`kd_gambar`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `caption_3` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`kd_gambar`, `gambar`, `caption_1`, `caption_2`, `caption_3`) VALUES
-(2, '09a98cc6655a049812540971c5ce6ea3.png', 'WELCOME TO MHOTEL', 'PROMO OPENING - 30%', 'SILAHKAN PESAN SEKARANG'),
-(3, 'b0b220e1f8892060b673f90614c616b9.png', 'DENGAN FASILITAS', 'RESTAURANS', 'NIKMATI HIDANGAN NYA'),
-(4, '90cb4f01ed07c92e38ac10bc9291de1d.png', 'MHOTEL', 'NUANSA PEGUNUNGAN', 'MEMBERIKAN KEYAMANAN DALAM ISTIRAHAT ANDA');
+(8, '16f8622bedee4c7c78ed577b8c65aa43.jpg', 'Toko Bunga', 'Valen Florist', 'Siap Menerima Berbagai Bentuk Karangan Bunga'),
+(9, '477c816c78688519439f0178119abbfb.jpg', 'Bunga Fresh', 'Bunga Cantik-Cantik', 'Di Jamin Anda Suka dan Puas!'),
+(10, 'd6a50007e78f118bee7fdd655ec8e9af.jpg', 'Bingung Mencari Karangan Bunga?', 'Valen Florist Solusi nya!', 'Bunga Cantik &amp; Fresh!');
 
 -- --------------------------------------------------------
 
@@ -3457,33 +3344,185 @@ INSERT INTO `slider` (`kd_gambar`, `gambar`, `caption_1`, `caption_2`, `caption_
 -- Table structure for table `tulisan`
 --
 
-CREATE TABLE IF NOT EXISTS `tulisan` (
-  `tulisan_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tulisan` (
+  `tulisan_id` int(11) NOT NULL,
   `tulisan_judul` varchar(100) DEFAULT NULL,
-  `tulisan_isi` longtext,
-  `tulisan_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `tulisan_isi` longtext DEFAULT NULL,
+  `tulisan_tanggal` timestamp NULL DEFAULT current_timestamp(),
   `tulisan_kategori_id` int(11) DEFAULT NULL,
   `tulisan_kategori_nama` varchar(30) DEFAULT NULL,
-  `tulisan_views` int(11) DEFAULT '0',
+  `tulisan_views` int(11) DEFAULT 0,
   `tulisan_gambar` varchar(40) DEFAULT NULL,
   `tulisan_pengguna_id` int(11) DEFAULT NULL,
   `tulisan_author` varchar(40) DEFAULT NULL,
   `tulisan_slug` varchar(250) NOT NULL,
   `tulisan_deskripsi` text NOT NULL,
-  `tulisan_lang` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`tulisan_id`),
-  KEY `tulisan_kategori_id` (`tulisan_kategori_id`),
-  KEY `tulisan_pengguna_id` (`tulisan_pengguna_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
+  `tulisan_lang` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tulisan`
 --
 
 INSERT INTO `tulisan` (`tulisan_id`, `tulisan_judul`, `tulisan_isi`, `tulisan_tanggal`, `tulisan_kategori_id`, `tulisan_kategori_nama`, `tulisan_views`, `tulisan_gambar`, `tulisan_pengguna_id`, `tulisan_author`, `tulisan_slug`, `tulisan_deskripsi`, `tulisan_lang`) VALUES
-(66, 'Pantai exotis yang akan menenangkan jiwa anda  ', '<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n', '2018-03-09 03:07:27', 16, 'Teknologi', 6, 'f18813e1be474ded5614d04d769e3c90.png', 1, 'M Fikri Setiadi', 'pantai-exotis-yang-akan-menenangkan-jiwa-anda', '', 'id'),
-(67, 'Kamar nyaman untuk keluarga', '<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n', '2019-03-27 02:44:44', 17, 'Politik', 1, '9385fac9d805de690dc3f85da667351a.png', 1, 'M Fikri Setiadi', 'kamar-nyaman-untuk-keluarga', '', 'id'),
-(68, 'Tips untuk menikmati keindahan sunset', '<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n', '2019-03-27 03:05:16', 15, 'Psikologi', 2, '09d718f012d2f4fdbeddf13ace68d853.png', 1, 'M Fikri Setiadi', 'tips-untuk-menikmati-keindahan-sunset', '', 'id');
+(66, 'Pantai exotis yang akan menenangkan jiwa anda  ', '<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n', '2018-03-09 03:07:27', 16, 'Teknologi', 8, 'f18813e1be474ded5614d04d769e3c90.png', 1, 'M Fikri Setiadi', 'pantai-exotis-yang-akan-menenangkan-jiwa-anda', '', 'id'),
+(67, 'Kamar nyaman untuk keluarga', '<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n', '2019-03-27 02:44:44', 17, 'Politik', 2, '9385fac9d805de690dc3f85da667351a.png', 1, 'M Fikri Setiadi', 'kamar-nyaman-untuk-keluarga', '', 'id'),
+(68, 'Tips untuk menikmati keindahan sunset', '<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel v Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel Ini adalah konten artikel.</p>\r\n', '2019-03-27 03:05:16', 15, 'Psikologi', 4, '09d718f012d2f4fdbeddf13ace68d853.png', 1, 'M Fikri Setiadi', 'tips-untuk-menikmati-keindahan-sunset', '', 'id');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `compare`
+--
+ALTER TABLE `compare`
+  ADD PRIMARY KEY (`kd_compare`);
+
+--
+-- Indexes for table `inbox`
+--
+ALTER TABLE `inbox`
+  ADD PRIMARY KEY (`inbox_id`);
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`kategori_id`);
+
+--
+-- Indexes for table `kontak`
+--
+ALTER TABLE `kontak`
+  ADD PRIMARY KEY (`kd_kontak`);
+
+--
+-- Indexes for table `overview`
+--
+ALTER TABLE `overview`
+  ADD PRIMARY KEY (`kd_over`);
+
+--
+-- Indexes for table `pengguna`
+--
+ALTER TABLE `pengguna`
+  ADD PRIMARY KEY (`pengguna_id`);
+
+--
+-- Indexes for table `pengunjung`
+--
+ALTER TABLE `pengunjung`
+  ADD PRIMARY KEY (`pengunjung_id`);
+
+--
+-- Indexes for table `post_views`
+--
+ALTER TABLE `post_views`
+  ADD PRIMARY KEY (`views_id`);
+
+--
+-- Indexes for table `product_type`
+--
+ALTER TABLE `product_type`
+  ADD PRIMARY KEY (`type_id`);
+
+--
+-- Indexes for table `ret`
+--
+ALTER TABLE `ret`
+  ADD PRIMARY KEY (`kd_rate`);
+
+--
+-- Indexes for table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`kd_gambar`);
+
+--
+-- Indexes for table `tulisan`
+--
+ALTER TABLE `tulisan`
+  ADD PRIMARY KEY (`tulisan_id`),
+  ADD KEY `tulisan_kategori_id` (`tulisan_kategori_id`),
+  ADD KEY `tulisan_pengguna_id` (`tulisan_pengguna_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `compare`
+--
+ALTER TABLE `compare`
+  MODIFY `kd_compare` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `inbox`
+--
+ALTER TABLE `inbox`
+  MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `kontak`
+--
+ALTER TABLE `kontak`
+  MODIFY `kd_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `overview`
+--
+ALTER TABLE `overview`
+  MODIFY `kd_over` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `pengguna`
+--
+ALTER TABLE `pengguna`
+  MODIFY `pengguna_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `pengunjung`
+--
+ALTER TABLE `pengunjung`
+  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3036;
+
+--
+-- AUTO_INCREMENT for table `post_views`
+--
+ALTER TABLE `post_views`
+  MODIFY `views_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `product_type`
+--
+ALTER TABLE `product_type`
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `ret`
+--
+ALTER TABLE `ret`
+  MODIFY `kd_rate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `kd_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `tulisan`
+--
+ALTER TABLE `tulisan`
+  MODIFY `tulisan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
