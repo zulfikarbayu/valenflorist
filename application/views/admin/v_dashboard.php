@@ -322,7 +322,6 @@
                         <?php
                             $inbox_query=$this->db->query("SELECT * FROM inbox")->num_rows();
                             $room_query=$this->db->query("SELECT * FROM compare")->num_rows();
-                            $makan_query=$this->db->query("SELECT * FROM makanan")->num_rows();
                         ?>
                         <!-- Row #3 -->
                         <div class="col-md-4">
