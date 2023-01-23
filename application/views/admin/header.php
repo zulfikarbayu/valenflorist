@@ -26,9 +26,8 @@
                                 
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php site_url('administrator/logout');?>">
-                                    <i class="si si-logout mr-5"></i> Sign Out
-                                </a>
+                                <a class="btn btn-primary" href="<?= base_url('administrator/logout') ?>">Logout</a>
+                                    <!-- <i class="si si-logout mr-5"></i> Sign Out </a> -->
                             </div>
                         </div>
                         <!-- END User Dropdown -->

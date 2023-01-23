@@ -96,7 +96,7 @@
                                 <article class="post">
 
                                     <div class="entry-media">
-                                        <a href="<?php echo site_url('testimony/'.$row->tulisan_slug);?>" class="post-thumbnail hover-zoom"><img src="<?php echo base_url().'assets/images/'.$row->tulisan_gambar;?>" alt=""></a>
+                                        <a href="<?php echo site_url('testimony/'.$row->tulisan_slug);?>" class="post-thumbnail hover-zoom"><img src="<?php echo base_url().'assets/images/'.$row->tulisan_gambar;?> " alt=""></a>
 
                                         <span class="posted-on"><strong><?php echo $row->hari;?></strong><?php echo $row->bulan;?></span>
 
