@@ -39,7 +39,7 @@
     <meta property="og:title" content="<?php echo $title;?>" />
     <meta property="og:description" content="<?php echo $meta_deskripsi;?>" />
     <meta property="og:url" content="<?php echo $url?>" />
-    <meta property="og:site_name" content="MHOTEL" />
+    <meta property="og:site_name" content="ValenFlorist" />
     
     <meta property="article:publisher" content="https://id-id.facebook.com/Hannahhotel.syariah/" />
     <meta property="article:section" content="<?php echo $b['tulisan_kategori_nama'];?>" />
